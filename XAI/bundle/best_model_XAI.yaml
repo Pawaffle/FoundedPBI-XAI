@@ -1,0 +1,68 @@
+input_perphect:
+  bacteria_df: data/perphect-data/public_data_set/bacteria_df.csv
+  phages_df: data/perphect-data/public_data_set/phages_df.csv
+  couples_df: data/perphect-data/public_data_set/couples_df.csv
+embeddings_dir: data/embeddings_XAI
+output_dir: output/best_model_XAI/
+num_gpu: 1
+gpu_id: 3
+
+training_config:
+  epochs: 100
+  learning_rate: 1e-3
+  weight_decay: 1e-4
+  batch_size: 256
+
+  reduce_dimensionality: PCA
+  n_components_bacteria: 500
+  n_components_phages: 500
+
+  k_folds_cv: 10
+
+phages_embedding_models:
+  - name: NT2
+    params: 
+      model_name: nucleotide-transformer-v2-250m-multi-species
+    strategy: TopBottomTruncateStrategy
+    use_cached_embeddings: auto
+
+  - name: MegaDNA
+    params: 
+      weights_path: data/weights/megaDNA_phage_145M.pt
+      get_layer: concat
+    strategy: MaxStrategy
+    use_cached_embeddings: auto
+
+  - name: DNABERT2
+    params: 
+      source_code_path: DNABERT-2-117M/
+      max_seq_len: 32768
+    strategy: TKPertStrategy
+    use_cached_embeddings: auto
+
+bacteria_embedding_models:
+  - name: NT2
+    params: 
+      model_name: nucleotide-transformer-v2-250m-multi-species
+    strategy: TopBottomTruncateStrategy
+    use_cached_embeddings: auto
+
+  - name: MegaDNA
+    params: 
+      weights_path: data/weights/megaDNA_phage_145M.pt
+      get_layer: concat
+    strategy: BottomTruncateStrategy
+    use_cached_embeddings: auto
+
+  - name: DNABERT2
+    params: 
+      source_code_path: DNABERT-2-117M/
+      max_seq_len: 32768
+    strategy: TopBottomTruncateStrategy
+    use_cached_embeddings: auto
+
+classifier: 
+  name: BasicMLPClassifier
+  params:
+    mlp_params: [256, 128]
+    dropout: 0.4
