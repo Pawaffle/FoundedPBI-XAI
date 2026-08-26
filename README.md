@@ -16,6 +16,11 @@
     - [Adding New Merging Strategies](#adding-new-merging-strategies)
 8. [Utilities](#utilities)
 
+## XAI Extension (this fork)
+
+This fork adds a SHAP-based explainability layer developed during an exchange project
+at HEIG-VD (CI4CB lab, 2026). See [`XAI/README.md`](./XAI/README.md) for the full documentation.
+
 ## Overview
 
 This repository contains all the code for the new iteration at solving the PBI problem by the CI4CB laboratory.
