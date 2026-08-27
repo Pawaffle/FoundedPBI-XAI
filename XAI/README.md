@@ -6,7 +6,7 @@ The goal of this exploratory work was to investigate what SHAP-based methods can
 
 **In Short:** Hierarchy SHAP (Nb2) is the most robust method in the current setup. Simple mean ablation (Nb1) is fast and easy to use, but highly sensitive to the choice of baseline. And DNABERT-2 does something odd during misclassifications — worth looking into.
 
-For the reasoning behind the chosen methods, interpretation of the results, and practical recommendations, the [`final report`](.documentation/Report_PBI_XAI.pdf) is the primary reference.
+For the reasoning behind the chosen methods, interpretation of the results, and practical recommendations, the [`final report`](./documentation/Report_PBI_XAI.pdf) is the primary reference.
 
 
 ## What is FoundedPBI?
