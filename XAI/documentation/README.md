@@ -1,6 +1,6 @@
 # Documentation
 
-- [**Final report (PDF)**](XAI\documentation\Report_PBI_XAI.pdf) — The main reference for this project. Covers the biological and engineering context, a taxonomy of the implemented SHAP methods, implementation details, a friendly notebook usage guide, and conclusions with directions for future work. Read this first.
+- [**Final report (PDF)**](./Report_PBI_XAI.pdf) — The main reference for this project. Covers the biological and engineering context, a taxonomy of the implemented SHAP methods, implementation details, a friendly notebook usage guide, and conclusions with directions for future work. Read this first.
 
 <br>
 
